@@ -1,15 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Queue
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
+            var queue = new Queue();
+            var queueStack = new QueueStack();
+
+            Test.QueueCheck(queue);
+            Test.TurnAround(queue);
+
+            Test.QueueCheck(queueStack);
+            Test.TurnAround(queueStack);
         }
     }
 }
