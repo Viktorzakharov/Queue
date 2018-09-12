@@ -6,7 +6,7 @@ namespace Queue
     {
         static void Main()
         {
-            var queue = new Queue();
+            var queue = new QueueList();
             var queueStack = new QueueStack();
 
             Test.QueueCheck(queue);

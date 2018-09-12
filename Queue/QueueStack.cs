@@ -13,17 +13,17 @@ namespace Queue
             stackReserve = new Stack();
         }
 
-        public new int Size()
+        public override int Size()
         {
             return stack.Size();
         }
 
-        public new void Enqueue(object item)
+        public override void Enqueue(object item)
         {
             stack.Push(item);
         }
 
-        public new object Dequeue()
+        public override object Dequeue()
         {
             while (stack.Size() > 1)
                 stackReserve.Push(stack.Pop());
@@ -36,13 +36,13 @@ namespace Queue
             return result;
         }
 
-        public new void TurnAround(int n)
+        public override void TurnAround(int n)
         {
             for (int i = 0; i < n; i++)
                 Enqueue(Dequeue());
         }
 
-        public new void Write()
+        public override void Write()
         {
             stack.Write();
         }
