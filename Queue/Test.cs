@@ -4,18 +4,18 @@ namespace Queue
 {
     class Test
     {
-        public static void QueueCheck(dynamic queue)
+        public static void QueueCheck(Queue queue)
         {
             var rnd = new Random();
 
             for (int i = 0; i < 5; i++)
                 queue.Enqueue(rnd.Next(255));
-            ChooseWriteType(queue);
+            queue.Write();
 
             queue.Enqueue(rnd.Next(255));
-            ChooseWriteType(queue);
+            queue.Write();
             queue.Dequeue();
-            ChooseWriteType(queue);
+            queue.Write();
 
             for (int i = 0; i < 6; i++)
                 queue.Dequeue();
@@ -24,23 +24,12 @@ namespace Queue
                 queue.Enqueue(rnd.Next(255));
         }
 
-        public static void TurnAround(dynamic queue)
+        public static void TurnAround(Queue queue)
         {
-            if(queue is Queue ) queue.Write();
-            else queue.stack.Write();
-
+            queue.Write();
             queue.TurnAround(3);
-
-            if (queue is Queue) queue.Write();
-            else queue.stack.Write();
-
+            queue.Write();
             Console.WriteLine();
-        }
-
-        public static void ChooseWriteType(dynamic queue)
-        {
-            if (queue is Queue) queue.Write();
-            else queue.stack.Write();
         }
     }
 }

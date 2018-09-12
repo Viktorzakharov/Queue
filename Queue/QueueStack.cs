@@ -2,7 +2,7 @@
 
 namespace Queue
 {
-    class QueueStack
+    class QueueStack : Queue
     {
         public Stack stack;
         public Stack stackReserve;
@@ -13,17 +13,17 @@ namespace Queue
             stackReserve = new Stack();
         }
 
-        public int Size()
+        public new int Size()
         {
             return stack.Size();
         }
 
-        public void Enqueue(object item)
+        public new void Enqueue(object item)
         {
             stack.Push(item);
         }
 
-        public object Dequeue()
+        public new object Dequeue()
         {
             while (stack.Size() > 1)
                 stackReserve.Push(stack.Pop());
@@ -36,10 +36,15 @@ namespace Queue
             return result;
         }
 
-        public void TurnAround(int n)
+        public new void TurnAround(int n)
         {
             for (int i = 0; i < n; i++)
                 Enqueue(Dequeue());
+        }
+
+        public new void Write()
+        {
+            stack.Write();
         }
     }
 }
