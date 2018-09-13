@@ -6,14 +6,12 @@ namespace Queue
     {
         static void Main()
         {
-            var queue = new QueueList();
-            var queueStack = new QueueStack();
+            var queue = new Deque();
 
             Test.QueueCheck(queue);
             Test.TurnAround(queue);
 
-            Test.QueueCheck(queueStack);
-            Test.TurnAround(queueStack);
+            Deque.PalindromeCheck("Там холм лохмат");
         }
     }
 }

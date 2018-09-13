@@ -4,30 +4,34 @@ namespace Queue
 {
     class Test
     {
-        public static void QueueCheck(Queue queue)
+        public static void QueueCheck(Deque queue)
         {
             var rnd = new Random();
 
             for (int i = 0; i < 5; i++)
-                queue.Enqueue(rnd.Next(255));
+                queue.AddFront(rnd.Next(255));
             queue.Write();
 
-            queue.Enqueue(rnd.Next(255));
+            queue.RemoveTail();
             queue.Write();
-            queue.Dequeue();
+            queue.RemoveFront();
             queue.Write();
-
-            for (int i = 0; i < 6; i++)
-                queue.Dequeue();
+            queue.AddTail(rnd.Next(255));
+            queue.Write();
 
             for (int i = 0; i < 5; i++)
-                queue.Enqueue(rnd.Next(255));
+                queue.RemoveTail();
+
+            for (int i = 0; i < 5; i++)
+                queue.AddTail(rnd.Next(255));
         }
 
-        public static void TurnAround(Queue queue)
+        public static void TurnAround(Deque queue)
         {
             queue.Write();
-            queue.TurnAround(3);
+            queue.TurnAroundToFront(3);
+            queue.Write();
+            queue.TurnAroundToTail(4);
             queue.Write();
             Console.WriteLine();
         }
